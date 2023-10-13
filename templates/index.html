@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block index %}
+<form action="{% url 'thanks' %}" method ="POST" >
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">Отправить</button>
+</form>
+
+<input type="text" id="filterInput" oninput="filterTable()" placeholder="Filter data...">
+
+<table border="1">
+
+    <tr>
+        <th> id</th>
+        <th> actionSt_dt </th>
+        <th> action_zone</th>
+        <th> Action_tipe</th>
+        <th> numbers_clips_f</th>
+        <th> cost</th>
+
+    </tr>
+    {% for obj in object_list %}
+    <tr>
+        <th> {{ obj.id }}</th>
+        <th>{{ obj.actionSt_dt }} </th>
+        <th> {{ obj.action_zone }}</th>
+        <th> {{ obj.Action_tipe }}</th>
+        <th> {{ obj.numbers_clips_f }}</th>
+        <th> {{ obj.cost }}</th>
+    </tr>
+    {% endfor %}
+</table>
+
+<script>
+function filterTable() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("filterInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];  // указать индекс столбца
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+{% endblock %}

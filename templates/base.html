@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Title</title>
+</head>
+<body>
+    <div id="burger" onclick="toggleSidebar()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div id="sidebar" {% if not user.is_authenticated %} class="overlay" {% endif %}>
+        <!-- Содержимое боковой панели -->
+
+
+        {% if user.is_authenticated %}
+            <p>Привет, {{ user.username }}!</p>
+            <a href="{% url 'logout' %}?next={{ request.path }}">Logout</a>
+        {% else %}
+            <p><a href="{% url 'login' %}">Пожалуйста, авторизуйтесь!</a></p>
+        {% endif %}
+
+
+    </div>
+    <div id="content">
+        <h1>Пример</h1>
+        {% block index %}{% endblock %}
+        {% block report %}{% endblock %}
+        {% block Thanks %}{% endblock %}
+        {% block formaction %}{% endblock %}
+    </div>
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

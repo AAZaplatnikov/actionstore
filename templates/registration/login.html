@@ -1,0 +1,43 @@
+<!-- HTML -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <!-- Inline CSS -->
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            width: 300px;
+        }
+        .login-form {
+            padding:30;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Form Container -->
+    <div class="login-container">
+        <!-- Login Form -->
+        <form class="login-form" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <!-- Login Button -->
+            <input type="submit" value="Войти" class="btn btn-lg btn-primary btn-block login-button">
+        </form>
+    </div>
+</body>
+</html>
