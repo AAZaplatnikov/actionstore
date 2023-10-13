@@ -13,7 +13,7 @@ class ActionStore(models.Model):
     numbers_clips = models.CharField(max_length=100)
     cost= models.CharField(max_length=100)
     # storenumber = models.CharField(max_length=100, default='default_value')
-    # datestore = models.DateTimeField(default='2023-01-01 00:00')
+    
     # timestore = models.CharField(max_length=100,default='default_value',)
     # floor = models.ForeignKey(Floor, on_delete=models.CASCADE,default='default_value')
 

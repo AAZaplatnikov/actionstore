@@ -15,7 +15,11 @@ class ActionsStoreForm(forms.Form):
     storenumber = forms.CharField(max_length=100)
 
 
-# actionSt_dt = models.DateTimeField(auto_now=True)     action_zone = models.CharField(max_length=100)     Action_tipe = models.CharField(max_length=100)     numbers_clips = models.CharField(max_length=100)     cost= models.CharField(max_length=100)
+# actionSt_dt = models.DateTimeField(auto_now=True)
+# action_zone = models.CharField(max_length=100)
+# Action_tipe = models.CharField(max_length=100)
+# numbers_clips = models.CharField(max_length=100)
+# cost= models.CharField(max_length=100)
 
 
 
