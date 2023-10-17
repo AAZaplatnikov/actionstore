@@ -12,7 +12,7 @@ class ActionsStoreForm(forms.Form):
     Action_tipe = forms.CharField(max_length=100,label='Тип активности' )
     numbers_clips = forms.CharField(max_length=100,label='Количество клипс' )
     cost = forms.CharField(max_length=100,label='Сумма, руб', required = False)
-    storenumber = forms.CharField(max_length=100)
+#    storenumber = forms.CharField(max_length=100)
 
 
 # actionSt_dt = models.DateTimeField(auto_now=True)

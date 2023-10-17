@@ -12,10 +12,6 @@ class ActionStore(models.Model):
     Action_tipe = models.CharField(max_length=100)
     numbers_clips = models.CharField(max_length=100)
     cost= models.CharField(max_length=100)
-    # storenumber = models.CharField(max_length=100, default='default_value')
-    
-    # timestore = models.CharField(max_length=100,default='default_value',)
-    # floor = models.ForeignKey(Floor, on_delete=models.CASCADE,default='default_value')
 
     def __str__(self):
         return f"{self.action_zone} - {self.Action_tipe}"
